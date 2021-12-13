@@ -1,0 +1,33 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PhoneBookApp.Pages.ContactPage"
+             xmlns:models="clr-namespace:PhoneBookApp.Models"
+             BackgroundColor="{DynamicResource SecondaryColor}"
+             Title="{Binding Title}">
+
+    <Grid RowDefinitions="*, Auto">
+        <VerticalStackLayout Grid.Row="0">
+            <Grid Padding="5">
+                <Entry Placeholder="First Name" Text="{Binding Contact.FirstName}"/>
+            </Grid>
+
+            <Grid Padding="5">
+                <Entry Placeholder="Last Name" Text="{Binding Contact.LastName}"/>
+            </Grid>
+
+            <Grid Padding="5">
+                <Entry Placeholder="Email Address" Text="{Binding Contact.Email}"/>
+            </Grid>
+
+            <Grid Padding="5">
+                <Entry Placeholder="Phone Number" Text="{Binding Contact.PhoneNumber}"/>
+            </Grid>
+
+            <Grid Padding="5">
+                <Entry Placeholder="Address"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <Button Text="Save" Command="{Binding SaveCommand}" Margin="5" Grid.Row="1"/>
+    </Grid>
+</ContentPage>

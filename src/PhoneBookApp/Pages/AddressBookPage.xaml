@@ -1,0 +1,60 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PhoneBookApp.Pages.AddressBookPage"
+             xmlns:models="clr-namespace:PhoneBookApp.Models"
+             BackgroundColor="DarkGrey"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="ContactCardTemplate"
+                x:DataType="models:Contact">
+                <Grid RowDefinitions="*, 1" BackgroundColor="{StaticResource SecondaryColor}" Padding="10">
+                    <Label Text="{Binding ., Converter={StaticResource ContactFullNameConverter}}" TextColor="{DynamicResource PrimaryColor}" Grid.Row="0"/>
+
+                    <BoxView BackgroundColor="{StaticResource SeparatorColor}" Margin="10,0,0,0" Grid.Row="1"/>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+	<Grid RowDefinitions="*, Auto" ColumnSpacing="0" RowSpacing="0">
+
+        <CollectionView x:Name="ContactsCollectionView"
+                        ItemsSource="{Binding Contacts}"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        SelectionMode="Single"
+                        ItemsLayout="VerticalList"
+                        SelectionChangedCommand="{Binding ContactSelectedCommand}"
+                        SelectionChangedCommandParameter="{Binding SelectedItem, Source={RelativeSource Self}}">
+            <CollectionView.EmptyView>
+                <ContentView HorizontalOptions="Fill" VerticalOptions="Fill">
+                    <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" RowDefinitions="auto, auto">
+
+                        <Label Text="No Contacts Available"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               Grid.Row="0"/>
+
+                        <Label Text="Add new contacts to see them displayed in this list"
+                               HorizontalTextAlignment="Center"
+                               Grid.Row="1"/>
+                    </Grid>
+                </ContentView>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Contact">
+                    <Grid RowDefinitions="*, 1" BackgroundColor="{StaticResource SecondaryColor}" Padding="10">
+                        <Label Text="{Binding ., Converter={StaticResource ContactFullNameConverter}}" TextColor="{DynamicResource PrimaryColor}" Grid.Row="0"/>
+
+                        <BoxView BackgroundColor="{StaticResource SeparatorColor}" Margin="10,0,0,0" Grid.Row="1"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Add New Contact" Command="{Binding AddContactCommand}" Grid.Row="1" Margin="5"/>
+	</Grid>
+</ContentPage>

@@ -80,7 +80,7 @@
                         <BoxView
                             Grid.Row="1"
                             Margin="20,0,0,0"
-                            BackgroundColor="#c8c7cc"
+                            BackgroundColor="{DynamicResource SeparatorColor}"
                             HeightRequest="1"
                             VerticalOptions="End" />
                     </Grid>

@@ -1,33 +1,160 @@
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PhoneBookApp.Pages.ContactPage"
-             xmlns:models="clr-namespace:PhoneBookApp.Models"
-             BackgroundColor="{DynamicResource SecondaryColor}"
-             Title="{Binding Title}">
+<ContentPage
+    x:Class="PhoneBookApp.Pages.ContactPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:PhoneBookApp.Models"
+    Title="{Binding Title}"
+    BackgroundColor="{DynamicResource SecondaryColor}">
 
-    <Grid RowDefinitions="*, Auto">
+    <Grid RowDefinitions="*, 75">
         <VerticalStackLayout Grid.Row="0">
-            <Grid Padding="5">
-                <Entry Placeholder="First Name" Text="{Binding Contact.FirstName}"/>
+
+            <!--  First Name  -->
+            <Grid RowDefinitions="auto, 1" RowSpacing="0">
+
+                <Grid
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="20"
+                    ColumnDefinitions="*"
+                    ColumnSpacing="20"
+                    RowSpacing="0">
+
+                    <Entry
+                        Grid.Row="0"
+                        HorizontalOptions="Fill"
+                        Placeholder="First Name"
+                        Text="{Binding Contact.FirstName}"
+                        VerticalOptions="Center" />
+
+                </Grid>
+
+                <BoxView
+                    Grid.Row="1"
+                    Margin="20,0,0,0"
+                    BackgroundColor="{DynamicResource SeparatorColor}"
+                    HeightRequest="1"
+                    VerticalOptions="End" />
             </Grid>
 
-            <Grid Padding="5">
-                <Entry Placeholder="Last Name" Text="{Binding Contact.LastName}"/>
+            <!--  Last Name  -->
+            <Grid RowDefinitions="auto, 1" RowSpacing="0">
+
+                <Grid
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="20"
+                    ColumnDefinitions="*"
+                    ColumnSpacing="20"
+                    RowSpacing="0">
+
+                    <Entry
+                        Grid.Row="0"
+                        HorizontalOptions="Fill"
+                        Placeholder="Last Name"
+                        Text="{Binding Contact.LastName}"
+                        VerticalOptions="Center" />
+
+                </Grid>
+
+                <BoxView
+                    Grid.Row="1"
+                    Margin="20,0,0,0"
+                    BackgroundColor="{DynamicResource SeparatorColor}"
+                    HeightRequest="1"
+                    VerticalOptions="End" />
             </Grid>
 
-            <Grid Padding="5">
-                <Entry Placeholder="Email Address" Text="{Binding Contact.Email}"/>
+            <!--  Email  -->
+            <Grid RowDefinitions="auto, 1" RowSpacing="0">
+
+                <Grid
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="20"
+                    ColumnDefinitions="*"
+                    ColumnSpacing="20"
+                    RowSpacing="0">
+
+                    <Entry
+                        Grid.Row="0"
+                        HorizontalOptions="Fill"
+                        Placeholder="Email Address"
+                        Text="{Binding Contact.Email}"
+                        VerticalOptions="Center" />
+
+                </Grid>
+
+                <BoxView
+                    Grid.Row="1"
+                    Margin="20,0,0,0"
+                    BackgroundColor="{DynamicResource SeparatorColor}"
+                    HeightRequest="1"
+                    VerticalOptions="End" />
             </Grid>
 
-            <Grid Padding="5">
-                <Entry Placeholder="Phone Number" Text="{Binding Contact.PhoneNumber}"/>
+            <!--  Phone Number  -->
+            <Grid RowDefinitions="auto, 1" RowSpacing="0">
+
+                <Grid
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="20"
+                    ColumnDefinitions="*"
+                    ColumnSpacing="20"
+                    RowSpacing="0">
+
+                    <Entry
+                        Grid.Row="0"
+                        HorizontalOptions="Fill"
+                        Placeholder="Phone Number"
+                        Text="{Binding Contact.PhoneNumber}"
+                        VerticalOptions="Center" />
+
+                </Grid>
+
+                <BoxView
+                    Grid.Row="1"
+                    Margin="20,0,0,0"
+                    BackgroundColor="{DynamicResource SeparatorColor}"
+                    HeightRequest="1"
+                    VerticalOptions="End" />
             </Grid>
 
-            <Grid Padding="5">
-                <Entry Placeholder="Address"/>
+            <!--  Address  -->
+            <Grid RowDefinitions="auto, 1" RowSpacing="0">
+
+                <Grid
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="20"
+                    ColumnDefinitions="*"
+                    ColumnSpacing="20"
+                    RowSpacing="0">
+
+                    <Entry
+                        Grid.Row="0"
+                        HorizontalOptions="Fill"
+                        Placeholder="Address"
+                        Text="Address"
+                        VerticalOptions="Center" />
+
+                </Grid>
+
+                <BoxView
+                    Grid.Row="1"
+                    Margin="20,0,0,0"
+                    BackgroundColor="{DynamicResource SeparatorColor}"
+                    HeightRequest="1"
+                    VerticalOptions="End" />
             </Grid>
+
         </VerticalStackLayout>
 
-        <Button Text="Save" Command="{Binding SaveCommand}" Margin="5" Grid.Row="1"/>
+        <Button
+            Grid.Row="1"
+            Margin="5"
+            Command="{Binding SaveCommand}"
+            Text="Save" />
     </Grid>
 </ContentPage>

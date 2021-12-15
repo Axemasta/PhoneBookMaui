@@ -14,7 +14,7 @@
 
             <Color x:Key="PrimaryColor">#512bdf</Color>
             <Color x:Key="SecondaryColor">White</Color>
-            <Color x:Key="SeparatorColor">#333d47</Color>
+            <Color x:Key="SeparatorColor">#c8c7cc</Color>
 
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />

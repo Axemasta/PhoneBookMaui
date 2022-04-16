@@ -24,7 +24,7 @@ namespace PhoneBookApp
 
 			var services = builder.Services;
 
-			services.TryAddTransient<IContactRepository, MockContactRepository>();
+			services.TryAddTransient<IContactItemRepository, MockContactItemRepository>();
 			services.TryAddSingleton<INavigationService, NavigationService>();
 
 			return builder.Build();

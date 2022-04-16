@@ -1,9 +1,7 @@
-﻿using Microsoft.Maui.Controls;
-using PhoneBookApp.Abstractions;
+﻿using PhoneBookApp.Abstractions;
 using PhoneBookApp.Extensions;
 using PhoneBookApp.Models;
 using PhoneBookApp.Navigation;
-using System;
 using System.Windows.Input;
 
 namespace PhoneBookApp.ViewModels
@@ -12,8 +10,8 @@ namespace PhoneBookApp.ViewModels
     {
         private readonly INavigationService _navigationService;
 
-        private Contact _contact;
-        public Contact Contact
+        private ContactItem _contact;
+        public ContactItem Contact
         {
             get => _contact;
             set => SetProperty(ref _contact, value);
@@ -56,7 +54,7 @@ namespace PhoneBookApp.ViewModels
 
         public void Initialize(INavigationParameters navigationParameters)
         {
-            if (navigationParameters.TryGetValue(NavigationConstants.Contact, out Contact contact))
+            if (navigationParameters.TryGetValue(NavigationConstants.Contact, out ContactItem contact))
             {
                 Contact = contact;
                 Mode = ContactViewModelMode.Edit;
@@ -75,7 +73,7 @@ namespace PhoneBookApp.ViewModels
                     return "Add New Contact";
 
                 case ContactViewModelMode.Edit:
-                    return Contact.GetFullName();
+                    return _contact.GetFullName();
 
                 default:
                     throw new NotSupportedException($"No implementation for mode: {mode}");

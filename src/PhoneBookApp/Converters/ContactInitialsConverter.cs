@@ -13,9 +13,9 @@ namespace PhoneBookApp.Converters
             if (value is null)
                 return null;
 
-            if (value is not Contact contact)
+            if (value is not ContactItem contact)
             {
-                throw new NotSupportedException($"Value must be of type {nameof(Contact)}");
+                throw new NotSupportedException($"Value must be of type {nameof(ContactItem)}");
             }
 
             string initals = string.Empty;

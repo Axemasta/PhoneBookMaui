@@ -43,7 +43,7 @@
             </CollectionView.EmptyView>
 
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="models:Contact">
+                <DataTemplate x:DataType="models:ContactItem">
 
                     <Grid RowDefinitions="auto, 1" RowSpacing="0">
 
@@ -63,7 +63,7 @@
                                 <Label
                                     FontAutoScalingEnabled="True"
                                     HorizontalTextAlignment="Center"
-                                    Text="{Binding .,Converter={StaticResource ContactInitialsConverter}}}"
+                                    Text="{Binding ., Converter={StaticResource ContactInitialsConverter}}"
                                     TextColor="{DynamicResource SecondaryColor}"
                                     VerticalTextAlignment="Center" />
                             </controls:CircularFrame>

@@ -1,15 +1,10 @@
 ﻿using PhoneBookApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhoneBookApp.Extensions
 {
-    public static class ContactExtension
+    public static class ContactItemExtension
     {
-        public static string GetFullName(this Contact contact)
+        public static string GetFullName(this ContactItem contact)
         {
             if (contact is null)
                 throw new ArgumentNullException(nameof(contact));

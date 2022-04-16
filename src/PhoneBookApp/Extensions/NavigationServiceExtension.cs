@@ -2,8 +2,6 @@
 using PhoneBookApp.Helpers;
 using PhoneBookApp.Models;
 using PhoneBookApp.Navigation;
-using System;
-using System.Threading.Tasks;
 
 namespace PhoneBookApp.Extensions
 {
@@ -23,7 +21,7 @@ namespace PhoneBookApp.Extensions
             return navigationService;
         }
 
-        public static async Task<INavigationService> NavigateToContactPage(this INavigationService navigationService, Contact contact)
+        public static async Task<INavigationService> NavigateToContactPage(this INavigationService navigationService, ContactItem contact)
         {
             if (navigationService is null)
                 throw new ArgumentNullException(nameof(navigationService));

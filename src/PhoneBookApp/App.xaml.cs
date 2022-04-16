@@ -1,18 +1,13 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
-using PhoneBookApp.Abstractions;
+﻿using PhoneBookApp.Abstractions;
 using PhoneBookApp.Pages;
-using PhoneBookApp.Repositories;
-using PhoneBookApp.Services;
 using PhoneBookApp.ViewModels;
 using Application = Microsoft.Maui.Controls.Application;
 
 namespace PhoneBookApp
 {
-	public partial class App : Application
+    public partial class App : Application
 	{
-		public App(INavigationService navigationService, IContactRepository	contactRepository)
+		public App(INavigationService navigationService, IContactItemRepository	contactRepository)
 		{
             InitializeComponent();
 

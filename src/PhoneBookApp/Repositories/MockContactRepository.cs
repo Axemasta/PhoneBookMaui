@@ -1,24 +1,19 @@
 ﻿using Bogus;
 using PhoneBookApp.Abstractions;
 using PhoneBookApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhoneBookApp.Repositories
 {
-    public class MockContactRepository : IContactRepository
+    public class MockContactItemRepository : IContactItemRepository
     {
-        private Lazy<List<Contact>> _contacts;
+        private Lazy<List<ContactItem>> _contacts;
 
-        public MockContactRepository()
+        public MockContactItemRepository()
         {
-            _contacts = new Lazy<List<Contact>>(ContactBuilder, System.Threading.LazyThreadSafetyMode.ExecutionAndPublication);
+            _contacts = new Lazy<List<ContactItem>>(ContactBuilder, System.Threading.LazyThreadSafetyMode.ExecutionAndPublication);
         }
 
-        private List<Contact> ContactBuilder()
+        private List<ContactItem> ContactBuilder()
         {
             var address = new Faker<Address>()
                 .RuleFor(c => c.HouseName, f => f.Address.BuildingNumber())
@@ -28,7 +23,7 @@ namespace PhoneBookApp.Repositories
                 .RuleFor(c => c.County, f => f.Address.County())
                 .RuleFor(c => c.Country, f => f.Address.Country());
 
-            var faker = new Faker<Contact>()
+            var faker = new Faker<ContactItem>()
                 .RuleFor(c => c.FirstName, f => f.Name.FirstName())
                 .RuleFor(c => c.LastName, f => f.Name.LastName())
                 .RuleFor(c => c.PhoneNumber, f => f.Phone.PhoneNumber())
@@ -38,7 +33,7 @@ namespace PhoneBookApp.Repositories
             return faker.GenerateBetween(1, 10);
         }
 
-        public List<Contact> GetContacts()
+        public List<ContactItem> GetContacts()
         {
             return _contacts.Value;
         }

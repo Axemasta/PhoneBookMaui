@@ -1,10 +1,8 @@
-﻿using System;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+﻿using Microsoft.Maui.Controls;
 
 namespace PhoneBookApp.Pages
 {
-	public partial class AddressBookPage : ContentPage
+    public partial class AddressBookPage : ContentPage
 	{
 		public AddressBookPage()
 		{

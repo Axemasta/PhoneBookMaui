@@ -9,16 +9,16 @@ namespace PhoneBookApp.ViewModels
 {
     public class AddressBookViewModel : ViewModelBase
     {
-        private readonly IContactRepository _contactRepository;
+        private readonly IContactItemRepository _contactRepository;
         private readonly INavigationService _navigationService;
 
-        public ObservableCollection<Contact> Contacts { get; }
+        public ObservableCollection<ContactItem> Contacts { get; }
 
         public ICommand AddContactCommand { get; }
 
-        public Command<Contact> ContactSelectedCommand { get; }
+        public Command<ContactItem> ContactSelectedCommand { get; }
 
-        public AddressBookViewModel(INavigationService navigationService, IContactRepository contactRepository)
+        public AddressBookViewModel(INavigationService navigationService, IContactItemRepository contactRepository)
         {
             _contactRepository = contactRepository;
             _navigationService = navigationService;
@@ -27,11 +27,11 @@ namespace PhoneBookApp.ViewModels
 
             var contacts = _contactRepository.GetContacts();
 
-            Contacts = new ObservableCollection<Contact>(contacts);
+            Contacts = new ObservableCollection<ContactItem>(contacts);
 
             AddContactCommand = new Command(OnAddContact);
 
-            ContactSelectedCommand = new Command<Contact>(OnContactSelected);
+            ContactSelectedCommand = new Command<ContactItem>(OnContactSelected);
         }
 
         async void OnAddContact()
@@ -40,7 +40,7 @@ namespace PhoneBookApp.ViewModels
             await _navigationService.NavigateToAddContactPage();
         }
 
-        async void OnContactSelected(Contact contact)
+        async void OnContactSelected(ContactItem contact)
         {
             await _navigationService.NavigateToContactPage(contact);
         }

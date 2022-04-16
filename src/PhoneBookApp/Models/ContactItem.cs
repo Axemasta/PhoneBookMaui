@@ -1,6 +1,6 @@
 ﻿namespace PhoneBookApp.Models
 {
-    public class Contact
+    public class ContactItem
     {
         public string FirstName { get; set; }
 

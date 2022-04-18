@@ -16,6 +16,9 @@
             <Color x:Key="SecondaryColor">White</Color>
             <Color x:Key="SeparatorColor">#c8c7cc</Color>
 
+            <Color x:Key="PrimaryTextColor">#512bdf</Color>
+            <Color x:Key="SecondaryTextColor">#6c757d</Color>
+
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
                 <Setter Property="FontFamily" Value="OpenSansRegular" />
@@ -26,6 +29,11 @@
                 <Setter Property="FontFamily" Value="OpenSansRegular" />
                 <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
                 <Setter Property="Padding" Value="14,10" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+                <Setter Property="PlaceholderColor" Value="{DynamicResource SecondaryTextColor}" />
             </Style>
 
         </ResourceDictionary>

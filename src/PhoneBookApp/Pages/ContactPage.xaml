@@ -7,149 +7,151 @@
     BackgroundColor="{DynamicResource SecondaryColor}">
 
     <Grid RowDefinitions="*, 75">
-        <VerticalStackLayout Grid.Row="0">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout>
 
-            <!--  First Name  -->
-            <Grid RowDefinitions="auto, 1" RowSpacing="0">
+                <!--  First Name  -->
+                <Grid RowDefinitions="auto, 1" RowSpacing="0">
 
-                <Grid
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Padding="20"
-                    ColumnDefinitions="*"
-                    ColumnSpacing="20"
-                    RowSpacing="0">
-
-                    <Entry
+                    <Grid
                         Grid.Row="0"
-                        HorizontalOptions="Fill"
-                        Placeholder="First Name"
-                        Text="{Binding Contact.FirstName}"
-                        VerticalOptions="Center" />
+                        Grid.Column="0"
+                        Padding="20"
+                        ColumnDefinitions="*"
+                        ColumnSpacing="20"
+                        RowSpacing="0">
 
+                        <Entry
+                            Grid.Row="0"
+                            HorizontalOptions="Fill"
+                            Placeholder="First Name"
+                            Text="{Binding Contact.FirstName}"
+                            VerticalOptions="Center" />
+
+                    </Grid>
+
+                    <BoxView
+                        Grid.Row="1"
+                        Margin="20,0,0,0"
+                        BackgroundColor="{DynamicResource SeparatorColor}"
+                        HeightRequest="1"
+                        VerticalOptions="End" />
                 </Grid>
 
-                <BoxView
-                    Grid.Row="1"
-                    Margin="20,0,0,0"
-                    BackgroundColor="{DynamicResource SeparatorColor}"
-                    HeightRequest="1"
-                    VerticalOptions="End" />
-            </Grid>
+                <!--  Last Name  -->
+                <Grid RowDefinitions="auto, 1" RowSpacing="0">
 
-            <!--  Last Name  -->
-            <Grid RowDefinitions="auto, 1" RowSpacing="0">
-
-                <Grid
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Padding="20"
-                    ColumnDefinitions="*"
-                    ColumnSpacing="20"
-                    RowSpacing="0">
-
-                    <Entry
+                    <Grid
                         Grid.Row="0"
-                        HorizontalOptions="Fill"
-                        Placeholder="Last Name"
-                        Text="{Binding Contact.LastName}"
-                        VerticalOptions="Center" />
+                        Grid.Column="0"
+                        Padding="20"
+                        ColumnDefinitions="*"
+                        ColumnSpacing="20"
+                        RowSpacing="0">
 
+                        <Entry
+                            Grid.Row="0"
+                            HorizontalOptions="Fill"
+                            Placeholder="Last Name"
+                            Text="{Binding Contact.LastName}"
+                            VerticalOptions="Center" />
+
+                    </Grid>
+
+                    <BoxView
+                        Grid.Row="1"
+                        Margin="20,0,0,0"
+                        BackgroundColor="{DynamicResource SeparatorColor}"
+                        HeightRequest="1"
+                        VerticalOptions="End" />
                 </Grid>
 
-                <BoxView
-                    Grid.Row="1"
-                    Margin="20,0,0,0"
-                    BackgroundColor="{DynamicResource SeparatorColor}"
-                    HeightRequest="1"
-                    VerticalOptions="End" />
-            </Grid>
+                <!--  Email  -->
+                <Grid RowDefinitions="auto, 1" RowSpacing="0">
 
-            <!--  Email  -->
-            <Grid RowDefinitions="auto, 1" RowSpacing="0">
-
-                <Grid
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Padding="20"
-                    ColumnDefinitions="*"
-                    ColumnSpacing="20"
-                    RowSpacing="0">
-
-                    <Entry
+                    <Grid
                         Grid.Row="0"
-                        HorizontalOptions="Fill"
-                        Placeholder="Email Address"
-                        Text="{Binding Contact.Email}"
-                        VerticalOptions="Center" />
+                        Grid.Column="0"
+                        Padding="20"
+                        ColumnDefinitions="*"
+                        ColumnSpacing="20"
+                        RowSpacing="0">
 
+                        <Entry
+                            Grid.Row="0"
+                            HorizontalOptions="Fill"
+                            Placeholder="Email Address"
+                            Text="{Binding Contact.Email}"
+                            VerticalOptions="Center" />
+
+                    </Grid>
+
+                    <BoxView
+                        Grid.Row="1"
+                        Margin="20,0,0,0"
+                        BackgroundColor="{DynamicResource SeparatorColor}"
+                        HeightRequest="1"
+                        VerticalOptions="End" />
                 </Grid>
 
-                <BoxView
-                    Grid.Row="1"
-                    Margin="20,0,0,0"
-                    BackgroundColor="{DynamicResource SeparatorColor}"
-                    HeightRequest="1"
-                    VerticalOptions="End" />
-            </Grid>
+                <!--  Phone Number  -->
+                <Grid RowDefinitions="auto, 1" RowSpacing="0">
 
-            <!--  Phone Number  -->
-            <Grid RowDefinitions="auto, 1" RowSpacing="0">
-
-                <Grid
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Padding="20"
-                    ColumnDefinitions="*"
-                    ColumnSpacing="20"
-                    RowSpacing="0">
-
-                    <Entry
+                    <Grid
                         Grid.Row="0"
-                        HorizontalOptions="Fill"
-                        Placeholder="Phone Number"
-                        Text="{Binding Contact.PhoneNumber}"
-                        VerticalOptions="Center" />
+                        Grid.Column="0"
+                        Padding="20"
+                        ColumnDefinitions="*"
+                        ColumnSpacing="20"
+                        RowSpacing="0">
 
+                        <Entry
+                            Grid.Row="0"
+                            HorizontalOptions="Fill"
+                            Placeholder="Phone Number"
+                            Text="{Binding Contact.PhoneNumber}"
+                            VerticalOptions="Center" />
+
+                    </Grid>
+
+                    <BoxView
+                        Grid.Row="1"
+                        Margin="20,0,0,0"
+                        BackgroundColor="{DynamicResource SeparatorColor}"
+                        HeightRequest="1"
+                        VerticalOptions="End" />
                 </Grid>
 
-                <BoxView
-                    Grid.Row="1"
-                    Margin="20,0,0,0"
-                    BackgroundColor="{DynamicResource SeparatorColor}"
-                    HeightRequest="1"
-                    VerticalOptions="End" />
-            </Grid>
+                <!--  Address  -->
+                <Grid RowDefinitions="auto, 1" RowSpacing="0">
 
-            <!--  Address  -->
-            <Grid RowDefinitions="auto, 1" RowSpacing="0">
-
-                <Grid
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Padding="20"
-                    ColumnDefinitions="*"
-                    ColumnSpacing="20"
-                    RowSpacing="0">
-
-                    <Entry
+                    <Grid
                         Grid.Row="0"
-                        HorizontalOptions="Fill"
-                        Placeholder="Address"
-                        Text="Address"
-                        VerticalOptions="Center" />
+                        Grid.Column="0"
+                        Padding="20"
+                        ColumnDefinitions="*"
+                        ColumnSpacing="20"
+                        RowSpacing="0">
 
+                        <Entry
+                            Grid.Row="0"
+                            HorizontalOptions="Fill"
+                            Placeholder="Address"
+                            Text="Address"
+                            VerticalOptions="Center" />
+
+                    </Grid>
+
+                    <BoxView
+                        Grid.Row="1"
+                        Margin="20,0,0,0"
+                        BackgroundColor="{DynamicResource SeparatorColor}"
+                        HeightRequest="1"
+                        VerticalOptions="End" />
                 </Grid>
 
-                <BoxView
-                    Grid.Row="1"
-                    Margin="20,0,0,0"
-                    BackgroundColor="{DynamicResource SeparatorColor}"
-                    HeightRequest="1"
-                    VerticalOptions="End" />
-            </Grid>
-
-        </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
 
         <Button
             Grid.Row="1"

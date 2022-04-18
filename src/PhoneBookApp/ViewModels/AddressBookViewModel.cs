@@ -25,7 +25,8 @@ namespace PhoneBookApp.ViewModels
 
             Title = "Address Book";
 
-            var contacts = _contactRepository.GetContacts();
+            var contacts = _contactRepository.GetContacts()
+                .OrderBy(c => c.LastName);
 
             Contacts = new ObservableCollection<ContactItem>(contacts);
 

@@ -28,6 +28,8 @@
 		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-android'">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
+		<ProvisioningType>manual</ProvisioningType>
+		<CodesignKey>iPhone Developer</CodesignKey>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -51,6 +53,11 @@
 	<ItemGroup>
 	  <PackageReference Include="Ardalis.GuardClauses" Version="4.0.1" />
 	  <PackageReference Include="Bogus" Version="34.0.1" />
+	  <PackageReference Include="Prism.DryIoc.Maui" Version="8.1.77-alpha" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Services\" />
 	</ItemGroup>
 	
 </Project>

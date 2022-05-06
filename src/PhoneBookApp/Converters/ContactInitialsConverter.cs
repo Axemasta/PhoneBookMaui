@@ -1,8 +1,5 @@
-﻿using Microsoft.Maui.Controls;
-using PhoneBookApp.Models;
-using System;
+﻿using PhoneBookApp.Models;
 using System.Globalization;
-using System.Linq;
 
 namespace PhoneBookApp.Converters
 {

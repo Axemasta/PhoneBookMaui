@@ -1,15 +1,15 @@
-﻿<Application
+﻿<prism:PrismApplication
     x:Class="PhoneBookApp.App"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:converters="clr-namespace:PhoneBookApp.Converters"
     xmlns:local="clr-namespace:PhoneBookApp"
+    xmlns:prism="http://prismlibrary.com"
     xmlns:windows="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;assembly=Microsoft.Maui.Controls"
     windows:Application.ImageDirectory="Assets">
-    <Application.Resources>
+    <prism:PrismApplication.Resources>
         <ResourceDictionary>
 
-            <converters:ContactFullNameConverter x:Key="ContactFullNameConverter" />
             <converters:ContactInitialsConverter x:Key="ContactInitialsConverter" />
 
             <Color x:Key="PrimaryColor">#512bdf</Color>
@@ -36,6 +36,11 @@
                 <Setter Property="PlaceholderColor" Value="{DynamicResource SecondaryTextColor}" />
             </Style>
 
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource PrimaryTextColor}" />
+                <Setter Property="BarTextColor" Value="{DynamicResource SecondaryColor}" />
+            </Style>
+
         </ResourceDictionary>
-    </Application.Resources>
-</Application>
+    </prism:PrismApplication.Resources>
+</prism:PrismApplication>

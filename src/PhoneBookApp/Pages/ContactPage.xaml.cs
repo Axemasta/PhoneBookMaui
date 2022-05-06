@@ -8,5 +8,5 @@ namespace PhoneBookApp.Pages
 		{
 			InitializeComponent();
 		}
-	}
+    }
 }

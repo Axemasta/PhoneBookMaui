@@ -1,15 +1,13 @@
-﻿using PhoneBookApp.Abstractions;
-using PhoneBookApp.Extensions;
+﻿using PhoneBookApp.Extensions;
 using PhoneBookApp.Models;
 using PhoneBookApp.Navigation;
+using Prism.Navigation;
 using System.Windows.Input;
 
 namespace PhoneBookApp.ViewModels
 {
-    public class ContactViewModel : ViewModelBase, IInitialize
+    public class ContactViewModel : ViewModelBase
     {
-        private readonly INavigationService _navigationService;
-
         private ContactItem _contact;
         public ContactItem Contact
         {
@@ -39,9 +37,8 @@ namespace PhoneBookApp.ViewModels
         }
 
         public ContactViewModel(INavigationService navigationService)
+            : base(navigationService)
         {
-            _navigationService = navigationService;
-
             Title = "Contact Page";
 
             SaveCommand = new Command(OnSave);
@@ -52,9 +49,9 @@ namespace PhoneBookApp.ViewModels
 
         }
 
-        public void Initialize(INavigationParameters navigationParameters)
+        public override void Initialize(INavigationParameters parameters)
         {
-            if (navigationParameters.TryGetValue(NavigationConstants.Contact, out ContactItem contact))
+            if (parameters.TryGetValue(NavigationConstants.Contact, out ContactItem contact))
             {
                 Contact = contact;
                 Mode = ContactViewModelMode.Edit;

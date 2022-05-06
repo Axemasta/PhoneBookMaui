@@ -1,24 +1,23 @@
-﻿using PhoneBookApp.Abstractions;
-using PhoneBookApp.Pages;
-using PhoneBookApp.ViewModels;
-using Application = Microsoft.Maui.Controls.Application;
+﻿using Prism;
+using Prism.Navigation;
 
 namespace PhoneBookApp
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
 	{
-		public App(INavigationService navigationService, IContactItemRepository	contactRepository)
+		public App()
 		{
             InitializeComponent();
-
-			var addressBookViewModel = new AddressBookViewModel(navigationService, contactRepository);
-
-			var addressBookPage = new AddressBookPage()
-            {
-				BindingContext = addressBookViewModel
-            };
-
-			MainPage = new NavigationPage(addressBookPage);
 		}
-	}
+
+        protected override async Task OnWindowCreated(IActivationState activationState)
+        {
+            var nav = await NavigationService.NavigateAsync("NavigationPage/AddressBookPage");
+
+            if (!nav.Success)
+            {
+                System.Diagnostics.Debugger.Break();
+            }
+        }
+    }
 }

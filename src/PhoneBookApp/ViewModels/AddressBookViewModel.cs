@@ -1,7 +1,12 @@
-﻿using Microsoft.Maui.Controls;
+﻿using Ardalis.GuardClauses;
+using Microsoft.Maui.Controls;
 using PhoneBookApp.Abstractions;
 using PhoneBookApp.Extensions;
+using PhoneBookApp.Helpers;
 using PhoneBookApp.Models;
+using PhoneBookApp.Navigation;
+using Prism.Commands;
+using Prism.Navigation;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -10,18 +15,17 @@ namespace PhoneBookApp.ViewModels
     public class AddressBookViewModel : ViewModelBase
     {
         private readonly IContactItemRepository _contactRepository;
-        private readonly INavigationService _navigationService;
 
         public ObservableCollection<ContactItem> Contacts { get; }
 
         public ICommand AddContactCommand { get; }
 
-        public Command<ContactItem> ContactSelectedCommand { get; }
+        public DelegateCommand<ContactItem> ContactSelectedCommand { get; }
 
         public AddressBookViewModel(INavigationService navigationService, IContactItemRepository contactRepository)
+            : base(navigationService)
         {
-            _contactRepository = contactRepository;
-            _navigationService = navigationService;
+            _contactRepository = Guard.Against.Null(contactRepository, nameof(contactRepository));
 
             Title = "Address Book";
 
@@ -30,20 +34,30 @@ namespace PhoneBookApp.ViewModels
 
             Contacts = new ObservableCollection<ContactItem>(contacts);
 
-            AddContactCommand = new Command(OnAddContact);
+            AddContactCommand = new DelegateCommand(OnAddContact);
 
-            ContactSelectedCommand = new Command<ContactItem>(OnContactSelected);
+            ContactSelectedCommand = new DelegateCommand<ContactItem>(OnContactSelected);
         }
 
         async void OnAddContact()
         {
             // TODO
-            await _navigationService.NavigateToAddContactPage();
+            await navigationService.NavigateAsync(NavigationHelper.ContactPage);
         }
 
         async void OnContactSelected(ContactItem contact)
         {
-            await _navigationService.NavigateToContactPage(contact);
+            var navParams = new NavigationParameters()
+            {
+                { NavigationConstants.Contact, contact }
+            };
+
+            var nav = await navigationService.NavigateAsync(NavigationHelper.ContactPage, navParams);
+
+            if (!nav.Success)
+            {
+                System.Diagnostics.Debugger.Break();
+            }
         }
     }
 }

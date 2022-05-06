@@ -66,9 +66,16 @@
                             <Label
                                 Grid.Row="0"
                                 Grid.Column="1"
-                                Text="{Binding ., Converter={StaticResource ContactFullNameConverter}}"
                                 TextColor="{DynamicResource PrimaryColor}"
-                                VerticalOptions="Center" />
+                                VerticalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding FirstName}" />
+                                        <Span Text=" " />
+                                        <Span Text="{Binding LastName}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
 
                         </Grid>
 

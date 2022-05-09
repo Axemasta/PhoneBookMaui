@@ -53,7 +53,7 @@
 	<ItemGroup>
 	  <PackageReference Include="Ardalis.GuardClauses" Version="4.0.1" />
 	  <PackageReference Include="Bogus" Version="34.0.1" />
-	  <PackageReference Include="Prism.DryIoc.Maui" Version="8.1.77-alpha" />
+	  <PackageReference Include="Prism.DryIoc.Maui" Version="8.1.83-alpha" />
 	</ItemGroup>
 
 	<ItemGroup>

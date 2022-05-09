@@ -2,7 +2,9 @@
 using PhoneBookApp.Pages;
 using PhoneBookApp.Repositories;
 using PhoneBookApp.ViewModels;
+using Prism;
 using Prism.Ioc;
+using Prism.Navigation;
 
 namespace PhoneBookApp
 {
@@ -23,7 +25,15 @@ namespace PhoneBookApp
 					containerRegistry.RegisterForNavigation<AddressBookPage, AddressBookViewModel>();
 					containerRegistry.RegisterForNavigation<ContactPage, ContactViewModel>();
 				})
-				.MauiBuilder
+				.OnAppStart(async navigationService =>
+                {
+					var nav = await navigationService.NavigateAsync("NavigationPage/AddressBookPage");
+
+					if (!nav.Success)
+					{
+						System.Diagnostics.Debugger.Break();
+					}
+				})
 				.ConfigureFonts(fonts =>
 				{
 					fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

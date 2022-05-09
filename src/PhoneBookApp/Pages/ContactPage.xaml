@@ -157,6 +157,6 @@
             Grid.Row="1"
             Margin="5"
             Command="{Binding SaveCommand}"
-            Text="Save" />
+            Text="{Binding Mode, Converter={StaticResource editingModeTextConverter}}" />
     </Grid>
 </ContentPage>

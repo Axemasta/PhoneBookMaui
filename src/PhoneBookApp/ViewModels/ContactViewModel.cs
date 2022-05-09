@@ -1,4 +1,5 @@
-﻿using PhoneBookApp.Extensions;
+﻿using PhoneBookApp.Enums;
+using PhoneBookApp.Extensions;
 using PhoneBookApp.Models;
 using PhoneBookApp.Navigation;
 using Prism.Navigation;
@@ -15,8 +16,8 @@ namespace PhoneBookApp.ViewModels
             set => SetProperty(ref _contact, value);
         }
 
-        private ContactViewModelMode? _mode;
-        public ContactViewModelMode? Mode
+        private EditingMode? _mode;
+        public EditingMode? Mode
         {
             get => _mode;
             set
@@ -29,12 +30,6 @@ namespace PhoneBookApp.ViewModels
         }
 
         public ICommand SaveCommand { get; }
-
-        public enum ContactViewModelMode
-        {
-            Add,
-            Edit
-        }
 
         public ContactViewModel(INavigationService navigationService)
             : base(navigationService)
@@ -54,22 +49,22 @@ namespace PhoneBookApp.ViewModels
             if (parameters.TryGetValue(NavigationConstants.Contact, out ContactItem contact))
             {
                 Contact = contact;
-                Mode = ContactViewModelMode.Edit;
+                Mode = EditingMode.Edit;
             }
             else
             {
-                Mode = ContactViewModelMode.Add;
+                Mode = EditingMode.Add;
             }
         }
 
-        private string GetTitleForMode(ContactViewModelMode mode)
+        private string GetTitleForMode(EditingMode mode)
         {
             switch (mode)
             {
-                case ContactViewModelMode.Add:
+                case EditingMode.Add:
                     return "Add New Contact";
 
-                case ContactViewModelMode.Edit:
+                case EditingMode.Edit:
                     return _contact.GetFullName();
 
                 default:

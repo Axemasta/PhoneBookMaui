@@ -60,7 +60,7 @@
                             <controls:AvatarView
                                 Grid.Column="0"
                                 HeightRequest="50"
-                                Text="{Binding ., Converter={StaticResource ContactInitialsConverter}}"
+                                Text="{Binding ., Converter={StaticResource contactInitialsConverter}}"
                                 WidthRequest="50" />
 
                             <Label

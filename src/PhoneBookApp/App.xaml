@@ -10,7 +10,8 @@
     <prism:PrismApplication.Resources>
         <ResourceDictionary>
 
-            <converters:ContactInitialsConverter x:Key="ContactInitialsConverter" />
+            <converters:EditingModeTextConverter x:Key="editingModeTextConverter" />
+            <converters:ContactInitialsConverter x:Key="contactInitialsConverter" />
 
             <Color x:Key="PrimaryColor">#512bdf</Color>
             <Color x:Key="SecondaryColor">White</Color>

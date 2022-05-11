@@ -59,5 +59,10 @@
 	<ItemGroup>
 	  <Folder Include="Services\" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\PhoneBookApp.Abstractions\PhoneBookApp.Abstractions.csproj" />
+	  <ProjectReference Include="..\PhoneBookApp.Domain\PhoneBookApp.Domain.csproj" />
+	</ItemGroup>
 	
 </Project>
